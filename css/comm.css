@@ -9,6 +9,15 @@
   box-sizing: border-box;
   color: #333;
 }
+.blind {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+}
 
 .wrap {
   width: 1200px;
@@ -16,33 +25,59 @@
   background: #eee;
 }
 header {
+  position: relative;
+  z-index: 1000;
   height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #000;
 }
-.gnb-depth1 {
+
+.gnb .gnb-depth1 {
   display: flex;
 }
-.gnb .gnb-depth1 li a {
-  font-size: 22px;
+.gnb .gnb-depth1 li {
+  position: relative;
+}
+.gnb .gnb-depth1 li > a {
+  display: block;
+  width: 120px;
+  font-size: 20px;
+  text-align: center;
   /* display: block;
   height: 100px;
   line-height: 100px; */
   padding: 20px;
   /* margin: 0 30px; */
 }
+.gnb .gnb-depth2 {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  background: #434748;
+}
+.gnb .gnb-depth2 li a {
+  display: block;
+  padding: 7px 0;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+}
+
 .slide {
   position: relative;
+  overflow: hidden;
   height: 300px;
   background: #a78787;
-  overflow: hidden;
 }
 .slide ul {
+  display: flex;
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
 }
 .slide img {
   display: block;
@@ -52,22 +87,80 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.sec-g {
-  width: 30%;
-  height: 180px;
-  background: #df8686;
-}
-
-main {
   height: 200px;
 }
+.sec-g {
+  position: relative;
+  width: 30%;
+  height: 180px;
+  /* background: #df8686; */
+}
+.sec-g .sec-tit {
+  margin-bottom: 10px;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #000;
+}
+.sec-g .link-more {
+  position: absolute;
+  top: 3px;
+  right: 0;
+}
+
+.lst-bbs li {
+  position: relative;
+  padding-left: 10px;
+}
+.lst-bbs li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background: green;
+}
+.lst-bbs a {
+  overflow: hidden;
+  display: block;
+  padding: 2px 0;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.lst-gallery {
+  display: flex;
+  justify-content: space-between;
+}
+.lst-gallery img {
+  display: block;
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  object-position: 50% 0;
+  border-radius: 3px;
+}
+.lst-gallery p {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.sec-g .sec-banner a {
+  width: 30%;
+}
+.sec-g .sec-banner img {
+  display: block;
+}
+
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100px;
   border-top: 1px solid #000;
+}
+.logo-foot img {
+  filter: grayscale(100%);
 }
 .copyright {
   text-align: center;
@@ -77,7 +170,4 @@ footer {
 }
 .family a {
   padding: 10px;
-}
-.logo-foot img {
-  filter: grayscale(100%);
 }
