@@ -29,6 +29,8 @@
 .wrap {
   width: 1200px;
   margin: auto;
+  padding-top: 100vh;
+  background: #fff;
 }
 header {
   position: relative;
@@ -215,7 +217,7 @@ footer {
 
 .modal-dimmed {
   position: fixed;
-  display: flex;
+  /* display: flex; */
   display: none;
   justify-content: center;
   align-items: center;
